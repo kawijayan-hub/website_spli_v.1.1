@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT. Sarana Pamunah Limbah Indonesia - Pengelolaan Limbah B3 Terpercaya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #059669;
+            --primary-dark: #047857;
+            --primary-light: #10b981;
+            --secondary: #0f172a;
+            --accent: #fbbf24;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #ffffff;
+            --bg-gray: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-nav {
+            background: var(--primary);
+            color: white !important;
+            padding: 0.65rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-nav::after {
+            display: none;
+        }
+
+        .cta-nav:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(5, 150, 105, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.75rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+            font-weight: 800;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(5, 150, 105, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            animation: fadeIn 1s ease 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hero-illustration {
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--secondary);
+            padding: 3rem 5%;
+            color: white;
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 5%;
+            background: var(--bg-gray);
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            padding: 0.5rem 0;
+            color: var(--text-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .service-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 6rem 5%;
+            background: var(--bg-gray);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .process-step {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .process-step p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            padding: 5rem 5%;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: #94a3b8;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            max-width: 350px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-brand p {
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .footer-column h4 {
+            color: white;
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        .certifications {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .cert-badge {
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 3rem;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                margin-top: 3rem;
+            }
+
+            .stats-container {
+                gap: 2rem;
+            }
+
+            .services-grid,
+            .features-grid,
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-illustration {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">SP</div>
+                <span>SPLI</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#layanan">Layanan</a></li>
+                <li><a href="#keunggulan">Keunggulan</a></li>
+                <li><a href="#proses">Proses</a></li>
+                <li><a href="#kontak" class="cta-nav">Hubungi Kami</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="beranda">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">🌱 Berizin KLHK & Bersertifikat</div>
+                <h1>
+                    Solusi <span class="highlight">Pengelolaan Limbah B3</span> yang Aman & Terpercaya
+                </h1>
+                <p class="hero-description">
+                    PT. Sarana Pamunah Limbah Indonesia adalah mitra terpercaya dalam pengelolaan limbah B3 industri. Kami berkomitmen memberikan layanan profesional dengan standar keamanan tertinggi untuk masa depan yang berkelanjutan.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#kontak" class="btn btn-primary">
+                        Konsultasi Gratis
+                        <span>→</span>
+                    </a>
+                    <a href="#layanan" class="btn btn-secondary">
+                        Lihat Layanan
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <svg class="hero-illustration" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Ilustrasi SVG sederhana untuk limbah dan lingkungan -->
+                    <circle cx="250" cy="250" r="200" fill="#dcfce7" opacity="0.5"/>
+                    <circle cx="250" cy="250" r="150" fill="#a7f3d0" opacity="0.6"/>
+                    <circle cx="250" cy="250" r="100" fill="#059669" opacity="0.3"/>
+                    
+                    <!-- Recycling symbol -->
+                    <path d="M250,150 L280,200 L220,200 Z" fill="#047857"/>
+                    <path d="M300,250 L280,300 L250,250 Z" fill="#047857"/>
+                    <path d="M200,250 L220,300 L250,250 Z" fill="#047857"/>
+                    
+                    <!-- Leaf decorations -->
+                    <ellipse cx="180" cy="180" rx="20" ry="30" fill="#10b981" opacity="0.7"/>
+                    <ellipse cx="320" cy="180" rx="20" ry="30" fill="#10b981" opacity="0.7"/>
+                    <ellipse cx="250" cy="350" rx="30" ry="20" fill="#10b981" opacity="0.7"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item fade-in">
+                <h3>15+</h3>
+                <p>Tahun Pengalaman</p>
+            </div>
+            <div class="stat-item fade-in">
+                <h3>500+</h3>
+                <p>Klien Terpercaya</p>
+            </div>
+            <div class="stat-item fade-in">
+                <h3>10K+</h3>
+                <p>Ton Limbah Dikelola/Tahun</p>
+            </div>
+            <div class="stat-item fade-in">
+                <h3>100%</h3>
+                <p>Kepatuhan Regulasi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="layanan">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Layanan Kami</p>
+                <h2 class="section-title">Solusi Lengkap Pengelolaan Limbah B3</h2>
+                <p class="section-description">
+                    Kami menyediakan layanan komprehensif untuk semua kebutuhan pengelolaan limbah B3 industri Anda dengan standar keamanan dan legalitas tertinggi.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">🔥</div>
+                    <h3>Pemusnahan Limbah B3</h3>
+                    <p>Pemusnahan limbah B3 dengan teknologi incinerator modern yang memenuhi standar emisi KLHK.</p>
+                    <ul class="service-features">
+                        <li>Incinerator berkapasitas besar</li>
+                        <li>Monitoring emisi real-time</li>
+                        <li>Sertifikat pemusnahan resmi</li>
+                        <li>Dokumentasi lengkap</li>
+                    </ul>
+                    <a href="#kontak" class="service-link">
+                        Pelajari Lebih Lanjut →
+                    </a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">♻️</div>
+                    <h3>Pengolahan & Recovery</h3>
+                    <p>Pengolahan limbah B3 dengan metode recovery untuk mengambil nilai ekonomis dari limbah.</p>
+                    <ul class="service-features">
+                        <li>Teknologi pengolahan modern</li>
+                        <li>Material recovery tinggi</li>
+                        <li>Reduce waste to landfill</li>
+                        <li>Circular economy approach</li>
+                    </ul>
+                    <a href="#kontak" class="service-link">
+                        Pelajari Lebih Lanjut →
+                    </a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🚛</div>
+                    <h3>Transportasi Limbah B3</h3>
+                    <p>Layanan transportasi limbah B3 yang aman dengan armada bersertifikat dan driver terlatih.</p>
+                    <ul class="service-features">
+                        <li>Armada lengkap & terawat</li>
+                        <li>Driver bersertifikat K3</li>
+                        <li>GPS tracking system</li>
+                        <li>Asuransi full coverage</li>
+                    </ul>
+                    <a href="#kontak" class="service-link">
+                        Pelajari Lebih Lanjut →
+                    </a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">📋</div>
+                    <h3>Konsultasi & Perizinan</h3>
+                    <p>Konsultasi lengkap mengenai manajemen limbah B3 dan bantuan pengurusan perizinan lingkungan.</p>
+                    <ul class="service-features">
+                        <li>Audit manajemen limbah</li>
+                        <li>Penyusunan dokumen lingkungan</li>
+                        <li>Pengurusan izin KLHK</li>
+                        <li>Training K3 limbah B3</li>
+                    </ul>
+                    <a href="#kontak" class="service-link">
+                        Pelajari Lebih Lanjut →
+                    </a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">🏭</div>
+                    <h3>TPS Limbah B3</h3>
+                    <p>Penyediaan fasilitas Tempat Penyimpanan Sementara (TPS) limbah B3 yang memenuhi standar.</p>
+                    <ul class="service-features">
+                        <li>Fasilitas berstandar KLHK</li>
+                        <li>Sistem keamanan 24/7</li>
+                        <li>Pencatatan digital</li>
+                        <li>Maintenance rutin</li>
+                    </ul>
+                    <a href="#kontak" class="service-link">
+                        Pelajari Lebih Lanjut →
+                    </a>
+                </div>
+
+                <div class="service-card fade-in">
+                    <div class="service-icon">📊</div>
+                    <h3>Reporting & Monitoring</h3>
+                    <p>Sistem pelaporan dan monitoring digital untuk transparansi penuh pengelolaan limbah Anda.</p>
+                    <ul class="service-features">
+                        <li>Dashboard real-time</li>
+                        <li>Laporan periodik otomatis</li>
+                        <li>Dokumentasi digital</li>
+                        <li>Compliance tracking</li>
+                    </ul>
+                    <a href="#kontak" class="service-link">
+                        Pelajari Lebih Lanjut →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us" id="keunggulan">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Keunggulan Kami</p>
+                <h2 class="section-title">Mengapa Memilih SPLI?</h2>
+                <p class="section-description">
+                    Kami berkomitmen memberikan layanan terbaik dengan standar keamanan dan profesionalisme tertinggi.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">✅</div>
+                    <h3>Berizin & Bersertifikat</h3>
+                    <p>Memiliki izin lengkap dari KLHK dan sertifikasi ISO untuk menjamin kualitas layanan dan kepatuhan regulasi.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Keamanan Terjamin</h3>
+                    <p>Sistem keamanan berlapis dengan protokol K3 ketat dan asuransi penuh untuk setiap proses pengelolaan.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Teknologi Modern</h3>
+                    <p>Menggunakan teknologi terkini dalam pengolahan dan pemusnahan limbah untuk hasil optimal dan ramah lingkungan.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">👥</div>
+                    <h3>Tim Profesional</h3>
+                    <p>Didukung tim ahli bersertifikat dengan pengalaman puluhan tahun dalam industri pengelolaan limbah B3.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💚</div>
+                    <h3>Ramah Lingkungan</h3>
+                    <p>Menerapkan prinsip circular economy dan zero waste to landfill untuk masa depan berkelanjutan.</p>
+                </div>
+
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📱</div>
+                    <h3>Transparansi Penuh</h3>
+                    <p>Sistem monitoring digital yang memungkinkan Anda memantau proses pengelolaan limbah secara real-time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="proses">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <p class="section-subtitle">Proses Kerja</p>
+                <h2 class="section-title">Alur Kerja yang Sistematis</h2>
+                <p class="section-description">
+                    Kami menjalankan proses yang terstruktur dan transparan untuk memastikan pengelolaan limbah B3 yang aman dan sesuai regulasi.
+                </p>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h3>Konsultasi Awal</h3>
+                    <p>Identifikasi jenis dan karakteristik limbah, estimasi volume, dan kebutuhan pengelolaan.</p>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h3>Survey & Analisis</h3>
+                    <p>Tim kami melakukan survey lokasi dan analisis laboratorium untuk menentukan metode pengelolaan yang tepat.</p>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h3>Penawaran & Kontrak</h3>
+                    <p>Penyusunan proposal lengkap dengan harga transparan dan penandatanganan kontrak kerjasama.</p>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <h3>Pengangkutan</h3>
+                    <p>Pengangkutan limbah dengan armada bersertifikat, dilengkapi dokumen manifest dan SOP ketat.</p>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="step-number">5</div>
+                    <h3>Pengolahan</h3>
+                    <p>Proses pengolahan atau pemusnahan limbah di fasilitas kami yang berstandar KLHK.</p>
+                </div>
+
+                <div class="process-step fade-in">
+                    <div class="step-number">6</div>
+                    <h3>Dokumentasi</h3>
+                    <p>Penyerahan dokumen lengkap meliputi manifest, sertifikat, dan laporan pengelolaan limbah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="kontak">
+        <div class="section-container">
+            <h2>Siap Mengelola Limbah B3 Anda dengan Aman?</h2>
+            <p>Hubungi kami hari ini untuk konsultasi gratis dan dapatkan solusi terbaik untuk kebutuhan pengelolaan limbah B3 perusahaan Anda.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/6281234567890" class="btn btn-white" target="_blank">
+                    WhatsApp Kami
+                    <span>→</span>
+                </a>
+                <a href="mailto:info@spli.co.id" class="btn btn-outline">
+                    Email Kami
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">SP</div>
+                        <span>SPLI</span>
+                    </div>
+                    <p>PT. Sarana Pamunah Limbah Indonesia adalah perusahaan pengelolaan limbah B3 yang berkomitmen memberikan solusi aman, legal, dan berkelanjutan.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">f</a>
+                        <a href="#" class="social-link" aria-label="Instagram">📷</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                        <a href="#" class="social-link" aria-label="YouTube">▶</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Layanan</h4>
+                    <ul class="footer-links">
+                        <li><a href="#layanan">Pemusnahan Limbah B3</a></li>
+                        <li><a href="#layanan">Pengolahan & Recovery</a></li>
+                        <li><a href="#layanan">Transportasi Limbah</a></li>
+                        <li><a href="#layanan">Konsultasi & Perizinan</a></li>
+                        <li><a href="#layanan">TPS Limbah B3</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Perusahaan</h4>
+                    <ul class="footer-links">
+                        <li><a href="#beranda">Tentang Kami</a></li>
+                        <li><a href="#keunggulan">Keunggulan</a></li>
+                        <li><a href="#proses">Proses Kerja</a></li>
+                        <li><a href="#">Sertifikasi</a></li>
+                        <li><a href="#">Karir</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Kontak</h4>
+                    <ul class="footer-links">
+                        <li>📍 Jl. Industri Raya No. 123</li>
+                        <li>Kawasan Industri MM2100</li>
+                        <li>Bekasi, Jawa Barat 17520</li>
+                        <li>📞 +62 21 8888 9999</li>
+                        <li>📧 info@spli.co.id</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="certifications">
+                <div class="cert-badge">🏆 ISO 9001:2015</div>
+                <div class="cert-badge">🏆 ISO 14001:2015</div>
+                <div class="cert-badge">🏆 ISO 45001:2018</div>
+                <div class="cert-badge">✅ KLHK Certified</div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 PT. Sarana Pamunah Limbah Indonesia. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when link clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
